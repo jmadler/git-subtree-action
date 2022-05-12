@@ -7,6 +7,8 @@ ssh-keyscan github.com > /root/.ssh/known_hosts
 echo "${GITHUB_TOKEN}" >> /root/.ssh/subtree
 chmod 0600 /root/.ssh/subtree
 
+git config --global --add safe.directory /github/workspace
+
 ARGS=""
 
 if [ "$FORCE" == "true" ]; then
