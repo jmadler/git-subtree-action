@@ -26,6 +26,10 @@ inputs:
     description: "Squash the merge"
     required: false
     default: "false"
+  message:
+    description: "Message"
+    required: false
+    default: ""
 runs:
   using: "docker"
   image: "Dockerfile"
