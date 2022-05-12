@@ -2,6 +2,8 @@
 
 set -exuo pipefail
 
+mkdir -p /root/.ssh
+
 ssh-keyscan github.com > /root/.ssh/known_hosts
 
 echo "${INPUT_GITHUB_TOKEN}" >> /root/.ssh/id_github_token
