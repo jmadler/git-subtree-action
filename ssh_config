@@ -1,4 +1,0 @@
-Host subtree
-Hostname github.com
-IdentityFile /root/.ssh/subtree
-User git
