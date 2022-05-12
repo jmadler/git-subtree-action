@@ -2,9 +2,9 @@ FROM alpine:3.15.4
 
 USER root
 
-COPY ssh_config /root/.ssh/config
-
-RUN apk add git \
+RUN apk add \
+    bash \
+    git \
     openssh \
     git-subtree
 
