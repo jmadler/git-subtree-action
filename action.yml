@@ -1,0 +1,34 @@
+name: "jmadler/git-subtree-action"
+description: "Run a git subtree command in a given repository"
+inputs:
+  github_token:
+    description: "Token"
+    required: true
+  repo:
+    description: "Repository"
+    required: false
+    default: ""
+  action:
+    description: "Action"
+    required: true
+  position:
+    description: "Branch, Commit, Ref, or Refspec"
+    required: false
+    default: ""
+  prefix:
+    description: "Prefix"
+    required: true
+  force:
+    description: "Force the action"
+    required: false
+    default: "false"
+  squash:
+    description: "Squash the merge"
+    required: false
+    default: "false"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+branding:
+  icon: share-2
+  color: blue
