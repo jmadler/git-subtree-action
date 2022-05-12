@@ -21,4 +21,6 @@ if [ "$MESSAGE" != "" ]; then
 	ARGS="$ARGS --message '${MESSAGE}'"
 fi
 
+env
+ls -laR
 git subtree -d -P "${PREFIX}" ${ACTION} ${ARGS} ${REPO} ${POSITION}
