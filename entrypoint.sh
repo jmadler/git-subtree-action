@@ -6,17 +6,13 @@
 
 set -exuo pipefail
 
-mkdir -p /root/.ssh
-ssh-keyscan github.com > /root/.ssh/known_hosts
-
 git config --global --add safe.directory /github/workspace
-
-# echo "${INPUT_GITHUB_TOKEN}" >> /root/.ssh/id_github_token
-# chmod 0600 /root/.ssh/id_github_token
-# git config --global --add core.sshCommand "ssh -i /root/.ssh/id_github_token"
-
-git config credential.helper store --file=/root/git-credentials
-echo "https://git:${INPUT_GITHUB_TOKEN}@github.com" >> /root/git-credentials
+git config --global url."https://api@github.com/".insteadOf "https://github.com/"
+git config --global url."https://ssh@github.com/".insteadOf "ssh://git@github.com/"
+git config --global url."https://git@github.com/".insteadOf "git@github.com:"
+echo 'echo $INPUT_GITHUB_TOKEN' > /root/git-askpass
+chmod +x /root/git-askpass
+export GIT_ASKPASS=/root/git-askpass
 
 ARGS=""
 
