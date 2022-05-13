@@ -7,14 +7,16 @@
 set -exuo pipefail
 
 mkdir -p /root/.ssh
-
 ssh-keyscan github.com > /root/.ssh/known_hosts
 
-echo "${INPUT_GITHUB_TOKEN}" >> /root/.ssh/id_github_token
-chmod 0600 /root/.ssh/id_github_token
-
-git config --global --add core.sshCommand "ssh -i /root/.ssh/id_github_token"
 git config --global --add safe.directory /github/workspace
+
+# echo "${INPUT_GITHUB_TOKEN}" >> /root/.ssh/id_github_token
+# chmod 0600 /root/.ssh/id_github_token
+# git config --global --add core.sshCommand "ssh -i /root/.ssh/id_github_token"
+
+git config credential.helper store --file=/root/git-credentials
+echo "https://git:${INPUT_GITHUB_TOKEN}@github.com" >> /root/git-credentials
 
 ARGS=""
 
