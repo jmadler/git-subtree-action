@@ -25,7 +25,7 @@ if [ "${INPUT_SQUASH}" == "true" ]; then
 fi
 
 if [ "${INPUT_MESSAGE}" != "" ]; then
-	ARGS="$ARGS --message '${INPUT_MESSAGE}'"
+	ARGS="$ARGS --message ${INPUT_MESSAGE}"
 fi
 
 git subtree -d -P "${INPUT_PREFIX}" ${INPUT_ACTION} ${ARGS} "${INPUT_REPO}" "${INPUT_POSITION}"
