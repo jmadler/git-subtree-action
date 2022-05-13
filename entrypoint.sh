@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Known limitations:
+# - Can't handle ' in message
+# - Can't handle hosts other than GitHub
+
 set -exuo pipefail
 
 mkdir -p /root/.ssh
