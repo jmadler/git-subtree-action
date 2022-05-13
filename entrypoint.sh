@@ -26,4 +26,4 @@ if [ "${INPUT_MESSAGE}" != "" ]; then
 	ARGS="$ARGS --message '${INPUT_MESSAGE}'"
 fi
 
-git subtree -d -P "${INPUT_PREFIX}" ${INPUT_ACTION} ${INPUT_ARGS} "${INPUT_REPO}" "${INPUT_POSITION}"
+git subtree -d -P "${INPUT_PREFIX}" ${INPUT_ACTION} ${ARGS} "${INPUT_REPO}" "${INPUT_POSITION}"
