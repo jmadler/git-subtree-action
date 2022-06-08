@@ -28,6 +28,14 @@ if [ "${INPUT_MESSAGE}" != "" ]; then
 	ARGS="$ARGS --message ${INPUT_MESSAGE}"
 fi
 
+if [ "${INPUT_GIT_EMAIL}" != ""]; then
+    git config --global user.email "${INPUT_GIT_EMAIL}"
+fi
+
+if [ "${INPUT_GIT_NAME}" != ""]; then
+    git config --global user.name "${INPUT_GIT_NAME}"
+fi
+
 ls -a -1 .
 
 git subtree -d -P "${INPUT_PREFIX}" ${INPUT_ACTION} ${ARGS} "${INPUT_REPO}" "${INPUT_POSITION}"

@@ -4,6 +4,12 @@ inputs:
   github_token:
     description: "Token"
     required: true
+  git_name:
+    description: "Git User Name"
+    required: false
+  git_email:
+    description: "Git User Email"
+    required: false
   repo:
     description: "Repository"
     required: false
