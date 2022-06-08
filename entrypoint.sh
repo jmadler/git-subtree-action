@@ -28,6 +28,6 @@ if [ "${INPUT_MESSAGE}" != "" ]; then
 	ARGS="$ARGS --message ${INPUT_MESSAGE}"
 fi
 
-ls -1 .
+ls -a -1 .
 
 git subtree -d -P "${INPUT_PREFIX}" ${INPUT_ACTION} ${ARGS} "${INPUT_REPO}" "${INPUT_POSITION}"
