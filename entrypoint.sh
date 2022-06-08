@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Known limitations:
-# - Can't handle ' in message
-# - Can't handle hosts other than GitHub
-
 set -exuo pipefail
 
 git config --global --add safe.directory /github/workspace
@@ -35,7 +31,5 @@ fi
 if [ "${INPUT_GIT_NAME}" != "" ]; then
     git config --global user.name "${INPUT_GIT_NAME}"
 fi
-
-ls -a -1 .
 
 git subtree -d -P "${INPUT_PREFIX}" ${INPUT_ACTION} ${ARGS} "${INPUT_REPO}" "${INPUT_POSITION}"
